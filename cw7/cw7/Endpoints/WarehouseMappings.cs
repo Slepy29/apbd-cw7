@@ -9,7 +9,7 @@ public static class WarehouseMappings
     {
         app.MapPost("/warehouse", async ([FromServices] IWarehouseRepository db, int productId, int idWarehouse, int amount, string createdAt) =>
         {
-            await db.AddProduct(productId, idWarehouse, amount, createdAt);
+            await db.AddProductToWarehouse(productId, idWarehouse, amount, createdAt);
             return Results.Ok();
         });
     }

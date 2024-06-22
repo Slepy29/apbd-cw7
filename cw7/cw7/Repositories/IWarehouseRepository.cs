@@ -6,14 +6,14 @@ public interface IWarehouseRepository
 
     public Task<bool> DoesProductExist(int id);
 
-    public Task<bool> DoesMagazynExist(int id);
+    public Task<bool> DoesWarehouseExist(int id);
 
-    public Task<bool> IsFulfilled(int id);
+    public Task<(bool, decimal, DateTime)> CheckOrderExists(int productId, int amount, DateTime createdAt);
 
-    public Task AddProduct(int id, int idWarehouse, int amount, string createdAt);
+    public Task<bool> IsOrderFulfilled(int idOrder);
 
-    public Task<bool> IsInOrder(int id);
+    public Task UpdateOrderFulfilledAt(int productId);
 
-    public Task UpdateData(int id);
+    public Task<int> AddProductToWarehouse(int productId, int warehouseId, int amount, string createdAt);
 
 }
